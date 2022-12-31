@@ -50,7 +50,7 @@ const getProductView = async(req, res, next) => {
 
 //Renderiza la vista de administrador para agregar un producto
 const adminAddProductView = (req, res) => {
-    res.status(200).render('pages/addProduct')
+    res.status(200).render('pages/addProduct', { validations: null })
 }
 
 module.exports = {
