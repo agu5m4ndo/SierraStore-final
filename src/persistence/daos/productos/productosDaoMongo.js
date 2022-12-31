@@ -10,21 +10,16 @@ class ProductoDaoMongo extends ContenedorMongoDB {
     }
 
     async createProduct(name, description, code, thumbnail, price, stock, category) {
-        const exists = await this.getByCode(code);
-        if (exists == null) {
-            const object = new productos({
-                name,
-                description,
-                code,
-                thumbnail,
-                price,
-                stock,
-                category
-            })
-            await super.create(object)
-        } else {
-            logError.error(`Ya existe un producto con ese código`);
-        }
+        const object = new productos({
+            name,
+            description,
+            code,
+            thumbnail,
+            price,
+            stock,
+            category
+        })
+        await super.create(object)
     }
 
     async getByCode(code) {

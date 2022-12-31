@@ -6,7 +6,8 @@ const
 
     ProductosDaoMemoria = require('./daos/productos/productosDaoMemoria'),
     CarritosDaoMemoria = require('./daos/carritos/carritosDaoMemoria'),
-    UsuariosDaoMemoria = require('./daos/usuarios/usuariosDaoMemoria.js'),
+    UsuariosDaoMemoria = require('./daos/usuarios/usuariosDaoMemoria'),
+    ChatsDaoMemoria = require('./daos/chats/chatsDaoMemoria'),
     persistence = require('../data/index.db');
 
 /*
@@ -25,8 +26,8 @@ const mongoObjects = {
 const memoryObjects = {
     product: ProductosDaoMemoria.getInstance(),
     cart: CarritosDaoMemoria.getInstance(),
-    user: UsuariosDaoMongo.getInstance(),
-    chat: ChatsDaoMongo.getInstance()
+    user: UsuariosDaoMemoria.getInstance(),
+    chat: ChatsDaoMemoria.getInstance()
 }
 
 const persistenceSelector = {

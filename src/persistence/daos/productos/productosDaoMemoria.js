@@ -13,15 +13,9 @@ class ProductosDaoMemoria extends ContenedorMemoria {
     }
 
     async createProduct(name, description, code, thumbnail, price, stock, category) {
-        const exists = await this.getByCode(code)
-        console.log(exists)
-        if (exists == null) {
-            const newProduct = new Product(name, description, code, thumbnail, price, stock, category);
-            const object = Object.assign({}, newProduct);
-            super.create(object);
-        } else {
-            logError.error(`Ya existe un producto con ese código`);
-        }
+        const newProduct = new Product(name, description, code, thumbnail, price, stock, category);
+        const object = Object.assign({}, newProduct);
+        super.create(object);
     }
 
     async getByCode(code) {
@@ -34,6 +28,18 @@ class ProductosDaoMemoria extends ContenedorMemoria {
 
     deleteProduct(code) {
         super.delete("code", code);
+    }
+
+    async updateProduct(product) {
+        const newProduct = {
+            name: product.name,
+            description: product.description,
+            code: product.code,
+            thumbnail: product.thumbnail,
+            price: product.price,
+            stock: product.stock,
+        }
+        await super.update("code", product.code, newProduct)
     }
 
     static getInstance() {

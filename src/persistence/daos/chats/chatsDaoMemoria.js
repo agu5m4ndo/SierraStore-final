@@ -1,17 +1,11 @@
-const chats = require('../../../data/models/chats'),
-    ContenedorMongo = require('../../containers/ContenedorMongoDB'),
+const Chat = require('../../classes/chat'),
+    ContenedorMemoria = require('../../containers/ContenedorMemoria'),
     { formatedDate } = require('../../../services/chat.service')
 let instance;
 
-class ChatsDaoMongo extends ContenedorMongo {
-    constructor() {
-        super(chats);
-    }
-
-    async createChat(object) {
-        const chat = new chats({
-            email: object.email,
-        })
+class ChatsDaoMemoria extends ContenedorMemoria {
+    createChat(object) {
+        const chat = new Chat(object.email);
         if (!!object.body) {
             const now = formatedDate();
             chat.messages.push({
@@ -21,17 +15,17 @@ class ChatsDaoMongo extends ContenedorMongo {
                 body: object.body
             })
         }
-        await super.create(chat)
+        super.create(chat)
     }
 
     async getChatByUsername(email) {
-        return await super.findOne({ email: `${email}` })
+        return await super.findOne("email", email)
     }
 
     // Si se envía un mensaje y no hay un chat asociado, se creará
     async postMessage(newMessage) {
-        const chat = await super.findOne({ email: `${newMessage.email}` })
-        if (chat == null) await this.createChat(newMessage)
+        const chat = await super.findOne("email", newMessage.email)
+        if (chat == null) this.createChat(newMessage)
         else {
             const now = formatedDate();
             chat.messages.push({
@@ -40,18 +34,18 @@ class ChatsDaoMongo extends ContenedorMongo {
                 time: now.hours,
                 body: newMessage.body
             })
-            await super.update({ email: `${chat.email}` }, chat)
+            super.update("email", chat.email, chat);
         }
     }
 
     async deleteChat(email) {
-        await super.delete({ email: `${email}` })
+        await super.delete("email", email);
     }
 
     static getInstance() {
-        if (!instance) instance = new ChatsDaoMongo();
+        if (!instance) instance = new ChatsDaoMemoria();
         return instance;
     }
 }
 
-module.exports = ChatsDaoMongo;
+module.exports = ChatsDaoMemoria;

@@ -38,6 +38,7 @@ class CarritosDaoMemoria extends ContenedorMemoria {
             deliveryLocation: address
         }
         super.create(cart);
+        return id;
     }
 
     async getCartProducts(id) {
@@ -48,10 +49,9 @@ class CarritosDaoMemoria extends ContenedorMemoria {
     async addToCart(id, product) {
         const cart = await super.findOne("id", id);
         const index = cart.productos.findIndex(prod => { return prod.code == product.code })
-        if (index) cart.productos[index].amount++;
+        if (index >= 0) cart.productos[index].amount = product.amount;
         else {
             product.id = cart.productos.length;
-            product.amount = 0;
             cart.productos.push(product);
         }
         super.update("id", cart.id, cart);
@@ -60,19 +60,28 @@ class CarritosDaoMemoria extends ContenedorMemoria {
     //Elimina un producto del carrito y reasigna sus ids a los demás productos
     async removeFromCart(id, idProd) {
         const cart = await super.findOne("id", id);
-        const index = cart.productos.findIndex((prod) => { return prod.code, idProd });
-        cart.productos.splice(index, 1);
-        let i = 0;
-        cart.productos.foreach((prod) => {
-            prod.id = i;
-            i++
-        })
+        if (cart.productos[idProd]) {
+            cart.productos.splice(idProd, 1);
+            let i = 0;
+            cart.productos.foreach((prod) => {
+                prod.id = i;
+                i++;
+            })
+        }
         super.update("id", id, cart)
+    }
+
+    async updateOneProduct(id, idProd, amount) {
+        const cart = await super.findOne("id", id);
+        if (cart.productos[idProd]) {
+            cart.productos[idProd].amount = amount;
+        }
+        return await super.update("id", id, cart)
     }
 
     async removeAllProducts(id) {
         const cart = await super.findOne("id", id);
-        cart.length = 0;
+        cart.productos = [];
         super.update("id", id, cart)
     }
 

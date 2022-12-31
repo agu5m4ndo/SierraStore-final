@@ -4,7 +4,7 @@ const logout = async(req, res) => {
     const result = await hasProducts(req.user);
     await cartRemoval(req.user, result);
     req.session.destroy();
-    deleteToken;
+    // deleteToken;
     res.redirect('/login')
 }
 
