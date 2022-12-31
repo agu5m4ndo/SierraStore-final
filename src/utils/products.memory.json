@@ -1,0 +1,87 @@
+{
+    "productos": [{
+        "name": "Lg smart 43\"",
+        "description": "Televisor Lg smart ultra HD de 43\"",
+        "code": "001",
+        "thumbnail": "1668826788253.jpg",
+        "price": 410,
+        "stock": true
+    }, {
+        "name": "Microondas Sigma 800W",
+        "description": "Microondas Sigma de 800W con capacidad de 23 litros",
+        "code": "002",
+        "thumbnail": "1668867945975.jpg",
+        "price": 119,
+        "stock": true
+    }, {
+        "name": "Heladera Samsung RT38",
+        "description": "Heladera Samsung con freezer y dispenser. Capacidad de 382 litros",
+        "code": "003",
+        "thumbnail": "1668827873413.jpg",
+        "price": 966,
+        "stock": true
+    }, {
+        "name": "Parlantes HP Dhe-6000",
+        "description": "Parlantes HP con salida jack para pc/laptop",
+        "code": "004",
+        "thumbnail": "1668828054716.jpg",
+        "price": 16,
+        "stock": true
+    }, {
+        "name": "Parlante portátil JBL Flip 5",
+        "description": "Parlante bluetooth JBL Flip 5 a prueba de agua.  Potencia de 20W",
+        "code": "005",
+        "thumbnail": "1668828244455.jpg",
+        "price": 88,
+        "stock": true
+    }, {
+        "name": "Horno eléctrico BGH",
+        "description": "Horno eléctrico BGH con capacidad de 30 litros",
+        "code": "006",
+        "thumbnail": "1668828547186.jpg",
+        "price": 65,
+        "stock": true
+    }, {
+        "name": "Pava eléctrica Atma",
+        "description": "Pava eléctrica Atma PE1821NAP de 1,7 litros con regulador de temperatura",
+        "code": "007",
+        "thumbnail": "1668828712017.jpg",
+        "price": 29,
+        "stock": true
+    }, {
+        "name": "Cafetera espresso Saeco SE50",
+        "description": "Cafetera espresso profesional Saeco SE50 con dos calderas separadas",
+        "code": "008",
+        "thumbnail": "1668828830599.jpg",
+        "price": 1072,
+        "stock": true
+    }, {
+        "name": "Batidora planetaria Gadnic B52",
+        "description": "Batidora Gadnic Cuk de 1200W, 6 velocidades. Capacidad de 5 litros",
+        "code": "009",
+        "thumbnail": "1668829030724.jpg",
+        "price": 114,
+        "stock": true
+    }, {
+        "name": "Licuadora Oster",
+        "description": "Licuadora Oster de 550W con 2 velocidades. Capacidad de 1,5 litros",
+        "code": "010",
+        "thumbnail": "1668829199341.jpg",
+        "price": 52,
+        "stock": true
+    }, {
+        "name": "Aire acondicionado Hyundai frio/calor",
+        "description": "Aire acondicionado Hyundai split inverter ",
+        "code": "011",
+        "thumbnail": "1668829336104.jpg",
+        "price": 444,
+        "stock": true
+    }, {
+        "name": "Estufa eléctrica Axel",
+        "description": "Estufa eléctrica Axel Convector de 3 niveles",
+        "code": "012",
+        "thumbnail": "1668829467863.jpg",
+        "price": 38,
+        "stock": true
+    }]
+}

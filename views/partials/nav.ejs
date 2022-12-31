@@ -1,0 +1,40 @@
+<nav>
+    <div id="mobile-view">
+        <h2 class="logo">
+            <a href="#"></a>
+        </h2>
+    </div>
+    <div id="desktop-view">
+        <div style="display: flex; flex-direction: row; align-items: center;">
+            <img style="width: 35px; margin: 0 4px;" src="../svg/LOGO.svg" alt="">
+            <a id="logo">Sierra Store </a>
+        </div>
+
+        <div id="nav-items">
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar producto" name="search" id="search">
+                <span class="material-icons">search</span>
+            </div>
+            <% if(!session) { %>
+                <a href="/login">login</a>
+                <a href="/register" class="box">register</a>
+                <% } else { %>
+                    <% if (session.role == "admin") {%>
+                        <button onclick="window.location = '/add-product'" style="margin-left: 15px" class="button two">Agregar</button>
+                        <%}%>
+                            <div class="login-user">
+                                <input type="checkbox" id="check">
+                                <label for="check" class="user-tab"><img class="profile-picture" src="/uploads/profiles/<%= filename %>" alt=""></label>
+                                <a href="/carrito" class="cart-icon" data-id="<%= cartId %>" data-count="<%= cartAmount %>"><i class="material-icons material-icons-outlined">shopping_cart</i></a>
+                                <div class="menu-display" style="display: none;">
+                                    <span class="triangle"></span>
+                                    <ul class="user-menu">
+                                        <li><a href="/perfil">Perfil</a></li>
+                                        <li><a href="/logout">Salir</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <% } %>
+        </div>
+    </div>
+</nav>

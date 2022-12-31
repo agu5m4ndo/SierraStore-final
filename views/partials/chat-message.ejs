@@ -1,0 +1,23 @@
+<% for (let i = 0; i < messages.length; i++) {%>
+    <% if (messages[i].type == type) {%>
+        <div class="right message-group">
+            <% do { %>
+                <div data-time="<%= messages[i].time %>" class="my message">
+                    <%= messages[i].body %>
+                </div>
+                <% i++ %>
+                    <% } while (i < messages.length && messages[i].type == type) %>
+                        <% i-- %>
+        </div>
+        <% } else { %>
+            <div class="left message-group">
+                <% do {%>
+                    <div data-time="<%= messages[i].time %>" class="his message">
+                        <%= messages[i].body %>
+                    </div><br>
+                    <% i++ %>
+                        <% } while (i < messages.length && messages[i].type != type ) %>
+                            <% i-- %>
+            </div>
+            <% } %>
+                <% } %>

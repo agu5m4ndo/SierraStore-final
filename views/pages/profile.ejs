@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../svg/LOGO.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <title>Perfil</title>
+</head>
+
+<body>
+    <%- include('../partials/nav')%>
+        <a class="direction-button" href="../"><span class="material-icons">chevron_left</span>volver</a>
+        <section class="edit-profile">
+            <h1>Perfil</h1>
+            <form action="/perfil" method="post" enctype="multipart/form-data">
+                <div class="picture-div" onclick="document.getElementById('avatar').click()">
+                    <img name="profile-picture" class="user-picture" src="/uploads/profiles/<%= filename %>" alt="">
+                    <span class="material-icons camera">photo_camera</span>
+                </div>
+                <input type="file" style="display:none" accept=".png, .jpg" name="avatar" id="avatar">
+                <input type="text" name="name" class="form-input" value="<%= session.name %>" placeholder="Nombre">
+                <input type="email" name="username" class="form-input" value="<%= session.username %>" placeholder="Email">
+                <input type="text" name="address" class="form-input" value="<%= session.address %>" placeholder="Dirección">
+                <input type="text" name="phoneNumber" class="form-input" value="<%= session.phoneNumber %>" placeholder="Número de teléfono">
+                <% if (!!validations) { %>
+                    <div class="register-warning">
+                        <%= validations[0].msg %>
+                    </div> <br>
+                    <% } %>
+                        <div class="profile-buttons">
+                            <button type="button" class="button four" onclick="window.location= '/'">Cancelar</button>
+                            <button type="submit" class="button two">Actualizar</button>
+                        </div>
+            </form>
+        </section>
+        <script src="../scripts/profile.js"></script>
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+
+</html>

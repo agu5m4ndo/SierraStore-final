@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../svg/LOGO.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" />
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <title>
+        <%= product.name %>
+    </title>
+</head>
+
+<body>
+    <section class="single-page">
+        <%- include('../partials/nav')%>
+            <a class="direction-button" href="../"><span class="material-icons">chevron_left</span>volver</a>
+            <section class="product-info" data-code="<%= product.code %>">
+                <div class="image-container">
+                    <img src="/uploads/products/<%= product.thumbnail %>" alt="">
+                </div>
+                <div class="product-details">
+                    <h3 class="state">Nuevo</h3>
+                    <h1 class="title">
+                        <%= product.name %>
+                    </h1>
+                    <h2 class="old-price"><s>$ <%= product.price + product.price*10/100 %> USD</s></h2>
+                    <h2 class="price">$
+                        <%= product.price %> USD</h2>
+                    <h3 class="payment-options"><a href="#">Ver medios de pago</a></h3>
+                    <div class="details">
+                        <h2>Información sobre el producto</h2>
+                        <h3>
+                            <%= product.description %>
+                        </h3>
+                    </div>
+                </div>
+                <div class="shipping-options">
+                    <h2>Envío a $
+                        <%= product.price/1000 %> USD hasta tu ubicación</h2>
+                    <h3>Comprando ahora llega el
+                        <%= futureDate.getDate() %> de
+                            <%= futureMonth %>
+                    </h3>
+                    <div class="amount">
+                        <input type="number" value="1" name="" min="1" max="15" class="amount-input">
+                        <h2>Cantidad</h2>
+                    </div>
+                    <div>
+                        <button id="buy-product" class="button three">Comprar</button>
+                        <button id="add-to-cart" class="button three">Agregar al carrito</button>
+                    </div>
+                </div>
+            </section>
+    </section>
+    <%- include('../partials/support-chat')%>
+        <script src="https://github.com/mde/ejs/releases/download/v3.1.8/ejs.min.js"></script>
+        <script src="../scripts/chat.js"></script>
+        <script src="../scripts/nav.js"></script>
+        <script type="module" src="../scripts/products.js"></script>
+</body>
+
+</html>

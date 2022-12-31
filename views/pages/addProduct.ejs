@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../svg/LOGO.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <title>Añadir producto</title>
+</head>
+
+<body>
+    <!-- <%- //include('../partials/nav')%> -->
+    <a class="direction-button" href="../"><span class="material-icons">chevron_left</span>volver</a>
+    <section class="centered-section">
+        <h1>Añadir producto</h1>
+        <form id="add-product-form" enctype="multipart/form-data">
+            <input type="text" name="name" required class="form-input" placeholder="Nombre">
+            <input type="number" name="code" required class="form-input" placeholder="Código">
+            <input type="number" name="price" required class="form-input" placeholder="Precio">
+            <textarea name="description" required class="form-input" placeholder="Ingrese una descripción" style="resize: vertical; height: 80px"></textarea>
+            <button type="button" class="button two" onclick="document.getElementById('product-thumbnail').click()">Añadir imagen</button>
+            <input type="file" required name="thumbnail" id="product-thumbnail" accept=".jpg, .png" style="display: none">
+            <p>Disponibilidad
+                <select name="stock" required>
+                    <option value="true">Si</option>
+                    <option value="false">No</option>
+                </select>
+            </p><br>
+            <p>Categoría
+                <select name="category" required>
+                    <option value="televisores">Televisores</option>
+                    <option value="heladeras">Heladeras</option>
+                    <option value="lavado">Lavarropas</option>
+                    <option value="hogar">Pequeños electrodomésticos</option>
+                    <option value="climatizacion">Ventilación y calefacción</option>
+                    <option value="hornos">Cocinas y hornos</option>
+                    <option value="sonido">Auriculares y parlantes</option>
+                    <option value="otros">otros</option>
+                </select>
+            </p>
+            <button type="submit" class="button three">Cargar</button>
+        </form>
+    </section>
+    <script src="../scripts/add-product.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</body>
+
+</html>

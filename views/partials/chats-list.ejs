@@ -1,0 +1,19 @@
+<% for (let i = 0; i < chats.length; i++) { %>
+    <div data-email="<%= chats[i].email %>" class="user-chat">
+        <img src="/uploads/profiles/<%= chats[i].filename %>" alt="" class="user-avatar">
+        <div class="chat-text-display">
+            <h2 class="user-name cut-text">
+                <%= chats[i].name %>
+            </h2>
+            <p class="cut-text">
+                <%= chats[i].lastMessage.body  %>
+            </p>
+        </div>
+        <div class="message-status">
+            <p class="time">
+                <%= chats[i].lastMessage.time  %>
+            </p>
+        </div>
+    </div>
+    <div class="horizontal-bar"></div>
+    <% } %>

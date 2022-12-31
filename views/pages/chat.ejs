@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../svg/LOGO.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" />
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <title>Chat</title>
+</head>
+
+<body>
+    <section class="chat-section">
+        <h1>Soporte</h1>
+        <div class="chat-container">
+            <div class="chat-list">
+                <%- include('../partials/chats-list')%>
+            </div>
+            <div class="chat-content">
+                <div class="user-info">
+
+                </div>
+                <div class="open-chat">
+
+                </div>
+                <div class="text-box">
+                    <textarea data-sender="sistema" data-chat class="input-message" rows="1" placeholder="Escribe un mensaje"></textarea>
+                    <span class="send-button"><i class='bx bx-send '></i></span>
+                </div>
+            </div>
+        </div>
+        <script src="https://github.com/mde/ejs/releases/download/v3.0.2/ejs.min.js"></script>
+        <script src="../scripts/chat.js"></script>
+</body>
+
+</html>

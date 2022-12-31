@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../svg/LOGO.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" />
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <title>Error</title>
+</head>
+
+<body>
+    <%- include('../partials/nav')%>
+        <section class="product-info cart-info">
+            <span style="font-size: 90px; color: red;"><i class='bx bxs-error-alt'></i></span>
+            <h2 style="font-size: 46px; color: red;">
+                <%=error.status%>
+            </h2>
+            <h2 style="font-size: 38px;text-align: center;">
+                <%= error.message %>
+            </h2>
+            <a href="<%= error.redirection %>">
+                <%= error.options %>
+            </a>
+        </section>
+        <script src="../scripts/nav.js"></script>
+</body>
+
+</html>

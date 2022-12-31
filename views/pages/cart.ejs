@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../svg/LOGO.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" />
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <title>Carrito</title>
+</head>
+
+<body>
+    <%- include('../partials/nav')%>
+        <a class="direction-button" href="../"><span class="material-icons">chevron_left</span>volver</a>
+        <% if (session) { %>
+            <% if (productsList == 0) { %>
+                <%- include('../partials/cart-error') %>
+                    <% } else { %>
+                        <section class="checkout-container">
+                            <h1>Mi carrito</h1>
+                            <div class="container">
+                                <h2 class="checkout-title">Lista de productos</h2>
+                                <% for (let i = 0; i < productsList.length; i++) { %>
+                                    <div>
+                                        <div class="horizontal-bar"></div>
+                                        <div data-id="<%= i %>" class="product-checkout">
+                                            <div class="checkout-img-div">
+                                                <img src="/uploads/products/<%= productsList[i].thumbnail %>" alt="">
+                                            </div>
+                                            <div class="checkout-product-info">
+                                                <h2 class="nombre">
+                                                    <%= productsList[i].name %>
+                                                </h2>
+                                                <div class="amount-delete">
+                                                    <input type="number" value="<%= productsList[i].amount %>" min="1" max="15" class="amount-input">
+                                                    <button class="delete-button">Borrar</button>
+                                                </div>
+                                            </div>
+                                            <div class="checkout-price-div">
+                                                <h2 class="checkout-price">$
+                                                    <%= productsList[i].price %> USD</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <div class="container">
+                                <h2 class="checkout-title">Resumen del pedido</h2>
+                                <div class="checkout-details">
+                                    <h3 id="total-products">Productos: $
+                                        <%= totalAmount %> USD</h3>
+                                    <h3 id="total-shipment">Envío: $
+                                        <%= shipmentTotalAmount %> USD</h3>
+                                    <h3>Descuentos: -</h3>
+                                </div>
+                                <h2 id="total-amount">Total: $
+                                    <%= (totalAmount + shipmentTotalAmount) %> USD</h2>
+                                <button class="button two" id="purchase-button" href="#">Finalizar compra&nbsp;&nbsp;&nbsp;&nbsp;<span class="material-icons chevron-right">chevron_right</span></button>
+                            </div>
+                        </section>
+                        <%- include('../partials/support-chat')%>
+
+                            <script src="https://github.com/mde/ejs/releases/download/v3.1.8/ejs.min.js"></script>
+                            <script src="../scripts/chat.js"></script>
+                            <script src="../scripts/cart.js"></script>
+                            <% } %>
+                                <% } %>
+                                    <script src="../scripts/nav.js"></script>
+</body>
+
+</html>

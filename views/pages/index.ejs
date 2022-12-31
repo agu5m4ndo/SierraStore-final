@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../svg/LOGO.svg" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" />
+    <link rel="stylesheet" href="../style.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <title>Sierra Store</title>
+</head>
+
+<body>
+    <%- include('../partials/nav')%>
+        <section id="products-view">
+            <% if (product.length != 0) { %>
+
+                <% for (let i = 0; i < product.length; i++) { %>
+                    <div class="product-card">
+                        <div class="product-id" style="visibility: hidden;">
+                            <%= product[i].code %>
+                                <!--Para obtener el id del producto desde js-->
+                        </div>
+                        <img src="/uploads/products/<%= product[i].thumbnail %>" alt="">
+                        <div class="product-card-text">
+                            <h2 class="card-name">
+                                <%= product[i].name %>
+                            </h2>
+                            <h4 class="card-old-price"><s>$ <%= product[i].price + product[i].price*10/100 %> USD</s></h4>
+                            <h2 class="card-price">$
+                                <%= product[i].price %> USD</h2>
+                            <h4 class="card-shipping">Envío $
+                                <%= product[i].price/10 %> USD</h4>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% } %>
+        </section>
+        <%- include('../partials/support-chat')%>
+            <script src="https://github.com/mde/ejs/releases/download/v3.1.8/ejs.min.js"></script>
+            <script src="../scripts/chat.js"></script>
+            <script src="../scripts/index-products.js"></script>
+            <script src="../scripts/nav.js"></script>
+</body>
+
+</html>

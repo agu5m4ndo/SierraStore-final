@@ -1,0 +1,20 @@
+<% if (!!session) { %>
+    <class class="help">
+        <input type="checkbox" id="help-checkbox">
+        <label for="help-checkbox" class="support-button"><i class='bx bx-support'></i></label>
+        <div class="chat-box">
+            <div class="chat-box-nav">
+                <div>
+                    <span class="support-icon"><i class='bx bx-support'></i></span>
+                    <h2>Soporte</h2>
+                </div>
+                <span class="close-icon" onclick="document.getElementById('help-checkbox').checked = false"><i class='bx bx-x'></i></span>
+            </div>
+            <div class="open-chat"></div>
+            <div class="text-box">
+                <textarea data-chat="<%= session.username %>" data-sender="usuario" class="input-message" style="width: 87%" rows="1" placeholder="Escribe un mensaje"></textarea>
+                <span class="send-button"><i class='bx bx-send '></i></span>
+            </div>
+        </div>
+    </class>
+    <% } %>
