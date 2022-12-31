@@ -5,6 +5,7 @@ const { logError } = require('../../utils/logger-winston'), { connectMongoDb } =
  * posibilitar el uso del contenedor con todos los objetos
  * y sus distintos identificadores
  */
+
 class ContenedorMongo {
     constructor(model) {
         this.model = model;

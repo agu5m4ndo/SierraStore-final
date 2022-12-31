@@ -2,7 +2,7 @@ const { handleRegistration } = require('../services/register.service')
 
 //Renderiza la vista de registro
 const getRegisterView = (req, res) => {
-    res.status(200).render('pages/register');
+    res.status(200).render('pages/register', { validations: null });
 }
 
 const registerUser = async(req, res) => {

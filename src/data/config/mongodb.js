@@ -9,7 +9,7 @@ require('dotenv').config();
  * Si no lo está, iniciará una nueva conexión
  */
 const connectMongoDb = () => {
-    if (mongoose.connection.readyState == 0 && ambient == "prod") {
+    if (mongoose.connection.readyState == 0) { // && ambient == "prod"
         mongoose.connect(process.env.CONNECTION_LINK, {
             useNewUrlParser: true,
             useUnifiedTopology: true

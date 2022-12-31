@@ -25,7 +25,8 @@ const mongoObjects = {
 const memoryObjects = {
     product: ProductosDaoMemoria.getInstance(),
     cart: CarritosDaoMemoria.getInstance(),
-    user: UsuariosDaoMemoria.getInstance()
+    user: UsuariosDaoMongo.getInstance(),
+    chat: ChatsDaoMongo.getInstance()
 }
 
 const persistenceSelector = {

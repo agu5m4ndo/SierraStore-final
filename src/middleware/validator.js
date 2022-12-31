@@ -5,10 +5,11 @@ const { check, validationResult } = require('express-validator'), { navConfig } 
 let page, object;
 
 const registerValidation = [
-    check('username', 'Ingrese un email válido').exists().not().isEmpty().isEmail().custom((value) => {
-        const exists = daoUsuarios.getByUsername(value);
+    check('username', 'Ingrese un email válido').exists().not().isEmpty().isEmail().custom(async(value) => {
+        const exists = await daoUsuarios.getByUsername(value);
+        console.log(exists)
         if (exists != null) {
-            throw new Error(`El usuario ${value} ya se encuentra registrado`)
+            throw new Error(`El usuario ingresado ya se encuentra registrado`)
         }
     }),
     check('password', 'Ingrese una contraseña').exists().not().isEmpty().custom((value, { req }) => {
@@ -37,11 +38,11 @@ const loginValidation = [
 
 const profileValidation = [
     check('name', 'Ingrese un nombre').exists().not().isEmpty(),
-    check('username', 'Ingrese un email válido').exists().not().isEmpty().isEmail().custom((value, { req }) => {
+    check('username', 'Ingrese un email válido').exists().not().isEmpty().isEmail().custom(async(value, { req }) => {
         if (value != req.user.username) {
-            const exists = daoUsuarios.getByUsername(value);
+            const exists = await daoUsuarios.getByUsername(value);
             if (exists != null) {
-                throw new Error(`El usuario ${value} ya se encuentra registrado`)
+                throw new Error(`El usuario ingresado ya se encuentra registrado`)
             }
         }
     }),
@@ -73,12 +74,10 @@ const productValidation = [
 ]
 
 const validateResult = (req, res, next) => {
-    // console.log(req.file)
     try {
         validationResult(req).throw();
         return next();
     } catch (error) {
-        console.log(error.array())
         if (object) {
             res.status(403).render(page, {...object, validations: error.array() })
         }
