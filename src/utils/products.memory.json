@@ -5,6 +5,7 @@
         "code": "001",
         "thumbnail": "1668826788253.jpg",
         "price": 410,
+        "category": "televisores",
         "stock": true
     }, {
         "name": "Microondas Sigma 800W",
@@ -12,6 +13,7 @@
         "code": "002",
         "thumbnail": "1668867945975.jpg",
         "price": 119,
+        "category": "hogar",
         "stock": true
     }, {
         "name": "Heladera Samsung RT38",
@@ -19,6 +21,7 @@
         "code": "003",
         "thumbnail": "1668827873413.jpg",
         "price": 966,
+        "category": "heladeras",
         "stock": true
     }, {
         "name": "Parlantes HP Dhe-6000",
@@ -26,6 +29,7 @@
         "code": "004",
         "thumbnail": "1668828054716.jpg",
         "price": 16,
+        "category": "sonido",
         "stock": true
     }, {
         "name": "Parlante portátil JBL Flip 5",
@@ -33,6 +37,7 @@
         "code": "005",
         "thumbnail": "1668828244455.jpg",
         "price": 88,
+        "category": "sonido",
         "stock": true
     }, {
         "name": "Horno eléctrico BGH",
@@ -40,6 +45,7 @@
         "code": "006",
         "thumbnail": "1668828547186.jpg",
         "price": 65,
+        "category": "hornos",
         "stock": true
     }, {
         "name": "Pava eléctrica Atma",
@@ -47,6 +53,7 @@
         "code": "007",
         "thumbnail": "1668828712017.jpg",
         "price": 29,
+        "category": "hogar",
         "stock": true
     }, {
         "name": "Cafetera espresso Saeco SE50",
@@ -54,6 +61,7 @@
         "code": "008",
         "thumbnail": "1668828830599.jpg",
         "price": 1072,
+        "category": "hogar",
         "stock": true
     }, {
         "name": "Batidora planetaria Gadnic B52",
@@ -61,6 +69,7 @@
         "code": "009",
         "thumbnail": "1668829030724.jpg",
         "price": 114,
+        "category": "hogar",
         "stock": true
     }, {
         "name": "Licuadora Oster",
@@ -68,6 +77,7 @@
         "code": "010",
         "thumbnail": "1668829199341.jpg",
         "price": 52,
+        "category": "hogar",
         "stock": true
     }, {
         "name": "Aire acondicionado Hyundai frio/calor",
@@ -75,6 +85,7 @@
         "code": "011",
         "thumbnail": "1668829336104.jpg",
         "price": 444,
+        "category": "climatizacion",
         "stock": true
     }, {
         "name": "Estufa eléctrica Axel",
@@ -82,6 +93,7 @@
         "code": "012",
         "thumbnail": "1668829467863.jpg",
         "price": 38,
+        "category": "climatizacion",
         "stock": true
     }]
 }

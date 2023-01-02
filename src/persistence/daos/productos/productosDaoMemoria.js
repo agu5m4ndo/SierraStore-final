@@ -42,6 +42,11 @@ class ProductosDaoMemoria extends ContenedorMemoria {
         await super.update("code", product.code, newProduct)
     }
 
+    getMultiple(query) {
+        const array = ["name", "description", "category"]
+        return super.findMultiple(query, array);
+    }
+
     static getInstance() {
         if (!instance) instance = new ProductosDaoMemoria();
         return instance;

@@ -33,7 +33,7 @@ const getCartProducts = async(req, res) => {
 
 const addToCart = async(req, res) => {
     let product = await daoProductos.getByCode(req.params['prod_code'])
-    product = product.toObject();
+        // product = product.toObject();
     product.amount = Number(req.body['amount'])
     await daoCarritos.addToCart(Number(req.params['id']), product)
     res.status(200).json({ success: 'true' })

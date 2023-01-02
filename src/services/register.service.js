@@ -13,7 +13,8 @@ const
  */
 const handleRegistration = async(body) => {
     try {
-        if (await daoUsuarios.getByUsername(body['username'])) {
+        const user = await daoUsuarios.getByUsername(body['username']);
+        if (user != null) {
             logWarn.warn(`El usuario ${body['username']} ya existe`)
             fs.unlink(path.join(__dirname, '..', '..', 'views', 'uploads', 'profiles', body['profilePicture']), () => console.log('Eliminado'))
             return false

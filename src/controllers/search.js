@@ -1,13 +1,11 @@
 const
     Factory = require('../persistence/factory'),
     daoProductos = new Factory().bring('product'),
-    { navConfig } = require('../services/nav.service'),
-    { queryBuilder } = require('../services/product.service')
+    { navConfig } = require('../services/nav.service')
 
 //Busca los términos requeridos en la barra de búsqueda
 const searchBarQueries = async(req, res, next) => {
-    const query = queryBuilder(req.params['query']);
-    const product = await daoProductos.findMultiple(query)
+    const product = await daoProductos.getMultiple(req.params['query'])
     if (product.length == 0) {
         const error = new Error();
         error.status = 404;

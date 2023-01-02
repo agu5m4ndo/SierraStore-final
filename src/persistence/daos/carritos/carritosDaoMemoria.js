@@ -29,20 +29,22 @@ class CarritosDaoMemoria extends ContenedorMemoria {
         return amount;
     }
 
-    createCart(address) {
+    async createCart(address) {
         const newCart = new Cart();
-        const id = this.idSetter();
+        const id = await this.idSetter();
         const cart = {
             timestamp: newCart.timestamp,
             id,
-            deliveryLocation: address
+            deliveryLocation: address,
+            productos: newCart.productos
         }
         super.create(cart);
         return id;
     }
 
     async getCartProducts(id) {
-        return await super.findOne("id", id);
+        const cart = await super.findOne("id", id);
+        return cart.productos;
     }
 
     //Si existe el producto en el carrito, aumenta su cantidad, sino lo agrega
@@ -62,11 +64,9 @@ class CarritosDaoMemoria extends ContenedorMemoria {
         const cart = await super.findOne("id", id);
         if (cart.productos[idProd]) {
             cart.productos.splice(idProd, 1);
-            let i = 0;
-            cart.productos.foreach((prod) => {
-                prod.id = i;
-                i++;
-            })
+            for (let i = 0; i < cart.productos.length; i++) {
+                cart.productos[i].id = i;
+            }
         }
         super.update("id", id, cart)
     }
@@ -76,7 +76,7 @@ class CarritosDaoMemoria extends ContenedorMemoria {
         if (cart.productos[idProd]) {
             cart.productos[idProd].amount = amount;
         }
-        return await super.update("id", id, cart)
+        return super.update("id", id, cart)
     }
 
     async removeAllProducts(id) {

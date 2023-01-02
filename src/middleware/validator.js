@@ -7,7 +7,6 @@ let page, object;
 const registerValidation = [
     check('username', 'Ingrese un email válido').exists().not().isEmpty().isEmail().custom(async(value) => {
         const exists = await daoUsuarios.getByUsername(value);
-        console.log(exists)
         if (exists != null) {
             throw new Error(`El usuario ingresado ya se encuentra registrado`)
         }
@@ -75,6 +74,7 @@ const productValidation = [
 
 const validateResult = (req, res, next) => {
     try {
+        req.body.file = req.file;
         validationResult(req).throw();
         return next();
     } catch (error) {

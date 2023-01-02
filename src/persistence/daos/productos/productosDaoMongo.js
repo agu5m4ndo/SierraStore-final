@@ -1,7 +1,8 @@
 const
     productos = require('../../../data/models/products'),
     ContenedorMongoDB = require('../../containers/ContenedorMongoDB'),
-    { logError } = require('../../../utils/index.utils')
+    { logError } = require('../../../utils/index.utils'),
+    { queryBuilder } = require('../../../services/product.service')
 let instance;
 
 class ProductoDaoMongo extends ContenedorMongoDB {
@@ -40,6 +41,11 @@ class ProductoDaoMongo extends ContenedorMongoDB {
             stock: product.stock,
         }
         await super.update({ code: `${product.code}` }, { newProduct })
+    }
+
+    async getMultiple(value) {
+        const query = queryBuilder(value);
+        return await super.findMultiple(query);
     }
 
     static getInstance() {

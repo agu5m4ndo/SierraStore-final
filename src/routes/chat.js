@@ -8,7 +8,7 @@ const
         getMessages
     } = require('../controllers/chat.js')
 
-router.route('/').get(admin, getChatView).post(postMessage); //debería estar logged
+router.route('/').get(logged, admin, getChatView).post(postMessage); //debería estar logged
 router.route('/:email').get(getMessages) //acá también
 
 module.exports = router;

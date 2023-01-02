@@ -6,14 +6,14 @@ const getRegisterView = (req, res) => {
 }
 
 const registerUser = async(req, res) => {
-    console.log(req.file)
     const body = {};
     for (const key in req.body) {
         body[key] = req.body[key];
     }
-    body['profilePicture'] = req.file.filename;
+    body['profilePicture'] = req.body.file.filename;
     const result = await handleRegistration(body);
-    result ? res.redirect('/login') : res.redirect('/register', { validations: null })
+    if (result) res.redirect('/register');
+    else res.redirect('/login')
 }
 
 module.exports = { getRegisterView, registerUser }

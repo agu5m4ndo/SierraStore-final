@@ -15,21 +15,15 @@ class ContenedorMemoria {
 
     create(object) {
         this.array.push(object);
-        console.log('El objeto ha sido añadido correctamente');
     }
 
     getAll() {
-        try {
-            return this.array;
-        } catch (error) {
-            console.log('Hubo un error al tratar de leer todos los objetos. ', error)
-        }
+        return this.array;
     }
 
     findOne(type, value) {
         const index = this.array.findIndex((item) => { return item[type] == value })
         if (this.array[index]) return this.array[index];
-        console.log(`No se ha encontrado un objeto con el id ${id}`);
         return null;
     }
 
@@ -37,17 +31,28 @@ class ContenedorMemoria {
         const index = this.array.findIndex(item => { return item[type] === value })
         if (this.array[index]) {
             this.array[index] = modifiedItem;
-            console.log(`El objeto ha sido modificado correctamente`);
-        } else console.log(`No se ha encontrado un objeto con el id ${id}`);
+        }
     }
+
+    findMultiple(value, possibleRequests) {
+        const allCoincidences = [];
+        for (let i = 0; i < possibleRequests.length; i++) {
+            if (allCoincidences.length <= 0) {
+                this.array.forEach(item => {
+                    if (item[possibleRequests[i]] == value || item[possibleRequests[i]].includes(value)) {
+                        allCoincidences.push(item)
+                    }
+                })
+            }
+        }
+        return allCoincidences;
+    }
+
 
     delete(type, value) {
         const index = this.array.findIndex(item => { return item[type] === value })
         if (this.array[index]) {
             this.array.splice(index, 1);
-            console.log(`El objeto ha sido eliminado`)
-        } else {
-            console.log(`No se pudo eliminar al objeto con id ${id}`);
         }
     }
 }
