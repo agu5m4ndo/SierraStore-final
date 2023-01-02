@@ -1,11 +1,14 @@
 const
     session = require('express-session'),
+    mongoose = require('mongoose'),
     MongoStore = require('connect-mongo'),
     advancedOptions = {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }
 require('dotenv').config();
+
+mongoose.connect(process.env.CONNECTION_LINK, advancedOptions)
 
 module.exports = session({
     store: MongoStore.create({

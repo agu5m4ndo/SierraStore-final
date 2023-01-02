@@ -5,6 +5,7 @@ const logout = async(req, res) => {
     await cartRemoval(req.user, result);
     req.session.destroy();
     // deleteToken;
+    res.clearCookie('connect.sid', { path: '/' }).status(200);
     res.redirect('/login')
 }
 

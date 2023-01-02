@@ -24,7 +24,8 @@ class ProductoDaoMongo extends ContenedorMongoDB {
     }
 
     async getByCode(code) {
-        return await super.findOne({ code: `${code}` });
+        let product = await super.findOne({ code: `${code}` });
+        return product.toObject();
     }
 
     async deleteProduct(code) {

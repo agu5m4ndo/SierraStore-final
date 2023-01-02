@@ -32,21 +32,20 @@ const getCartProducts = async(req, res) => {
 }
 
 const addToCart = async(req, res) => {
-    let product = await daoProductos.getByCode(req.params['prod_code'])
-    product = product.toObject();
-    product.amount = Number(req.body['amount'])
-    await daoCarritos.addToCart(Number(req.params['id']), product)
-    res.status(200).json({ success: 'true' })
+    let product = await daoProductos.getByCode(req.params['prod_code']);
+    product.amount = Number(req.body['amount']);
+    await daoCarritos.addToCart(Number(req.params['id']), product);
+    res.status(200).json({ success: 'true' });
 }
 
 const removeFromCart = async(req, res) => {
-    await daoCarritos.removeFromCart(Number(req.params['id']), Number(req.params['prod_code']))
-    res.status(200).json({ success: 'true' })
+    await daoCarritos.removeFromCart(Number(req.params['id']), Number(req.params['prod_code']));
+    res.status(200).json({ success: 'true' });
 }
 
 const updateProductList = async(req, res) => {
     await daoCarritos.updateOneProduct(Number(req.params['id']), Number(req.params['prod_code']), Number(req.body['amount']))
-    res.status(200).json({ sucess: 'true' })
+    res.status(200).json({ sucess: 'true' });
 }
 
 //Renderiza la vista del carrito
