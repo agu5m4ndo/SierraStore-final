@@ -62,13 +62,14 @@ const productValidation = [
         if (exists != null) {
             throw new Error(`El código de producto ${value} ya está en uso`);
         }
-        return true;
+        return;
     }),
     check('price', 'Ingrese un precio').exists().not().isEmpty().isNumeric(),
     check('description', 'Ingrese una descripción').exists().not().isEmpty(),
     async(req, res, next) => {
-        page = 'pages/addProduct'
-        validateResult(req, res, next)
+        page = 'pages/addProduct';
+        object = { posted: false };
+        validateResult(req, res, next);
     }
 ]
 

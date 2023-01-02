@@ -10,7 +10,7 @@ const
 const createCart = async(req, res) => {
     const user = await daoUsuarios.getByUsername(req.user.username);
     user.cart = await daoCarritos.createCart(req.user.address);
-    await daoUsuarios.updateUser(user);
+    await daoUsuarios.updateUser(req.user, user);
     return newCartId;
 }
 

@@ -13,12 +13,13 @@ const getProfileView = async(req, res) => {
 
 const editProfile = async(req, res) => {
     const body = req.body,
-        user = req.user;
+        user = req.user,
+        username = req.user.username;
 
-    let result = compare(body, user, req.file);
+    let result = compare(body, user, req.body.file);
     if (result.changes) {
         try {
-            await daoUsuarios.updateUser(result.user)
+            await daoUsuarios.updateUser(username, result.user)
         } catch (error) {
             logError.error('Error al modificar el usuario ' + error)
         }

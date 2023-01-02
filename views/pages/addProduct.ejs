@@ -51,7 +51,10 @@
                     <%= validations[0].msg %>
                 </div> <br>
                 <% } %>
-                    <button type="submit" class="button three">Cargar</button>
+                    <% if (posted) { %>
+                        <div class="succesful-post">Producto cargado con éxito</div> <br>
+                        <% } %>
+                            <button type="submit" class="button three">Cargar</button>
         </form>
     </section>
     <script src="../scripts/add-product.js"></script>

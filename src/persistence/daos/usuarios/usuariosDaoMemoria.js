@@ -21,8 +21,8 @@ class UsuariosDaoMemoria extends ContenedorMemoria {
         return await super.findOne("username", username);
     }
 
-    updateUser(newUser) {
-        super.update("username", newUser.username, newUser);
+    updateUser(username, newUser) {
+        super.update("username", username, newUser);
     }
 
     deleteUser(username) {

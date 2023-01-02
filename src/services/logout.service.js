@@ -29,7 +29,7 @@ const cartRemoval = async(sessionUser, noProducts) => {
         await daoCarritos.deleteCart(sessionUser.cart);
         const user = await daoUsuarios.getByUsername(sessionUser.username);
         user.cart = -1;
-        await daoUsuarios.updateUser(user);
+        await daoUsuarios.updateUser(sessionUser.username, user);
     }
 }
 

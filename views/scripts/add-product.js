@@ -1,8 +1,8 @@
-const form = document.getElementById('add-product-form');
+let successMessage;
 
-form.addEventListener('submit', async(e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-
-})
+if (document.querySelector('.succesful-post')) {
+    successMessage = document.querySelector('.succesful-post');
+    setTimeout(() => {
+        successMessage.parentNode.removeChild(successMessage);
+    }, 2000);
+}

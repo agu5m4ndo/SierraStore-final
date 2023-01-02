@@ -121,7 +121,7 @@ socket.on('load-messages', result => {
     if (textInput.dataset.sender == 'sistema') {
         loadChats(result.chats)
     }
-    //Evita que se carguen otros chats en la vista del usuario
+    //Evita que se carguen chats ajenos en la vista del usuario
     if (textInput.dataset.chat == result.singleChat.email) {
         loadMessages(result.singleChat.messages);
     }

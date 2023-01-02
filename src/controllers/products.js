@@ -14,9 +14,9 @@ const getAllProducts = async(req, res) => {
 
 const postProduct = async(req, res) => {
     const { name, description, code, price, stock, category } = req.body;
-    const thumbnail = req.file.filename;
+    const thumbnail = req.body.file.filename;
     await daoProductos.createProduct(name, description, code, thumbnail, price, stock, category);
-    res.status(201).json({ success: 'true' });
+    res.status(201).render('pages/addProduct', { validations: null, posted: true });
 }
 
 const editProduct = async(req, res) => {
@@ -50,7 +50,7 @@ const getProductView = async(req, res, next) => {
 
 //Renderiza la vista de administrador para agregar un producto
 const adminAddProductView = (req, res) => {
-    res.status(200).render('pages/addProduct', { validations: null })
+    res.status(200).render('pages/addProduct', { validations: null, posted: false })
 }
 
 module.exports = {

@@ -28,8 +28,8 @@ class UsuariosDaoMongo extends ContenedorMongo {
         return await super.findOne({ username: `${username}` })
     }
 
-    async updateUser(newUser) {
-        await super.update({ username: newUser.username }, newUser)
+    async updateUser(username, newUser) {
+        await super.update({ username: username }, newUser)
     }
 
     async deleteUser(username) {
