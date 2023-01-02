@@ -23,7 +23,7 @@ const hasCart = async(sessionUser) => {
 const assignNewCart = async(sessionUser) => {
     const user = await daoUsuarios.getByUsername(sessionUser.username);
     user.cart = await daoCarritos.createCart(sessionUser.address);
-    await daoUsuarios.updateUser(req.user, user);
+    await daoUsuarios.updateUser(sessionUser.username, user);
 }
 
 module.exports = { hasCart, assignNewCart }

@@ -47,7 +47,7 @@ class ContenedorMongo {
 
     async update(identifier, newObject) {
         try {
-            await this.model.replaceOne(identifier, newObject);
+            await this.model.updateOne(identifier, newObject);
         } catch (error) {
             logError.error('MongoDB error actualizar un objeto ' + error)
         }
