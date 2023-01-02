@@ -1,22 +1,32 @@
 {
     "users": [{
             "username": "agusmando25@gmail.com",
-            "password": "$2b$10$h34XDu2yKx1cBsxbTm9gr.8GtHk4aLEPo/Hn4UlQB4YRIuRb0qVaq",
+            "password": "$2b$10$NgVuhpUNWWNVftaLR1PZI.9ztUSmYb1ykNDGGGhcpzESaxylTyPee",
             "name": "Agustín Mandolesi",
             "address": "chaco 1319",
             "phoneNumber": "+5492613727377",
-            "profilePicture": "1672677018817.jpg",
+            "profilePicture": "1671916042488.jpg",
             "role": "admin",
             "cart": -1
         },
         {
             "username": "admin@gmail.com",
-            "password": "$2b$10$h34XDu2yKx1cBsxbTm9gr.8GtHk4aLEPo/Hn4UlQB4YRIuRb0qVaq",
+            "password": "$2b$10$NgVuhpUNWWNVftaLR1PZI.9ztUSmYb1ykNDGGGhcpzESaxylTyPee",
             "name": "admin",
             "address": "calle admin",
             "phoneNumber": "+5492613775533",
-            "profilePicture": "1672614046383.jpg",
+            "profilePicture": "1671916111721.jpg",
             "role": "admin",
+            "cart": -1
+        },
+        {
+            "username": "pepe@gmail.com",
+            "password": "$2b$10$NgVuhpUNWWNVftaLR1PZI.9ztUSmYb1ykNDGGGhcpzESaxylTyPee",
+            "name": "pepe",
+            "address": "calle customer",
+            "phoneNumber": "+5492613775533",
+            "profilePicture": "1672679030193.jpg",
+            "role": "customer",
             "cart": -1
         }
     ]
