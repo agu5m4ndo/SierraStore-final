@@ -31,7 +31,6 @@ Este es un proyecto desarrollado para el final del curso de backend de coderhous
 5. Escribe en la línea de comandos `npm run dev`.
 6. Dirígete a `localhost:8080` en tu navegador.
 
-
 ## Rol de administrador
 Al registrar un usuario, puedes dirigirte a tu base de datos en mongo y cambiar tu rol a "admin" lo cual te permitirá añadir productos y hacer soporte de las consultas de los cliente
 
