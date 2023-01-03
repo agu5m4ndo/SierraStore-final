@@ -28,7 +28,7 @@ Este es un proyecto desarrollado para el final del curso de backend de coderhous
     PASSWORD = tupassword 
   
 4. Escribe en la línea de comandos `npm i` para instalar todas las dependencias. 
-5. Escribe en línea de comandos `npm run dev`.
+5. Escribe en la línea de comandos `npm run dev`.
 6. Dirígete a `localhost:8080` en tu navegador.
 
 
