@@ -20,7 +20,7 @@ Este es un proyecto desarrollado para el final del curso de backend de coderhous
 
     ```#Server config
     PORT = 8080
-    CONNECTION_LINK = databasedemongo
+    CONNECTION_LINK = tudatabasedemongo
     AMBIENT = prod
 
     #Multer config
