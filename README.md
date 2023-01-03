@@ -1,5 +1,5 @@
 # SierraStore
-Proyecto de un ecommerce con node
+Proyecto de un ecommerce con node.
 
 ![presentación-sierra](https://user-images.githubusercontent.com/75182327/210292162-a8303d7c-bdd5-4374-9700-2cb41144cac3.png)
 
@@ -26,9 +26,10 @@ Este es un proyecto desarrollado para el final del curso de backend de coderhous
     #Multer config
     EMAIL = tuemail@gmail.com
     PASSWORD = tupassword 
-    
-4. Escribe en línea de comandos `npm run dev`.
-5. Dirígete a `localhost:8080` en tu navegador
+  
+4. Escribe en la línea de comandos `npm i` para instalar todas las dependencias. 
+5. Escribe en línea de comandos `npm run dev`.
+6. Dirígete a `localhost:8080` en tu navegador.
 
 
 ## Rol de administrador
