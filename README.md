@@ -47,11 +47,11 @@ La ruta "/src/utils/products.memory.json" lleva a un json con productos para car
 
 Puedes acceder al chat desde el botón inferior a la derecha si eres un cliente o a través de la ruta "/chat" de la página si eres administrador.
 
-Vista del administrador
+Vista del administrador:
 
 ![soporte](https://user-images.githubusercontent.com/75182327/210293427-ac71e1a1-eae0-4564-b832-35d8f20a5056.png)
 
-Vista del cliente 
+Vista del cliente:
 
 ![cliente](https://user-images.githubusercontent.com/75182327/210293426-38595eca-0e99-4430-a375-14b117351186.png)
 
